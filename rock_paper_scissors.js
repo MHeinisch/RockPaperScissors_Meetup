@@ -34,40 +34,26 @@ function runGame() {
 
 }
 
+function determineRoundWinner(playerOne, playerTwo) {
+	if(playerOne.gesture === playerTwo.gesture) {
+		alert("Tie");
+	}
+	else if(playerOne.gesture === "rock" && playerTwo.gesture === "scissors" || playerOne.gesture === "paper" && playerTwo.gesture === "rock") {
+		playerOne.score++;	
+		alert(playerOne.name + " wins this round!\nThe score is " + playerOne.score + "-" + playerTwo.score);
+	}
+	else {
+		playerTwo.score++;
+		alert(playerTwo.name + " wins this round\nThe score is " + playerOne.score + "-" + playerTwo.score);
+	}
+}
+
 function displayGameRules() {
 	alert("Welcome to Rock Paper Scissors!");
 	alert("The goal of the game is to be the first player to get two wins, good luck!");
 
 	alert("As a reminder...\nRock crushes Scissors,\nScissors cuts Paper, and\nPaper covers Rock.");
 	alert("Good luck!!!");
-}
-
-function setPlayerName(player) {
-	player.name = prompt("Player, please enter your name:");	
-}
-
-function setPlayerGesture(player) {
-	let isValid = false;
-	do {
-		player.gesture = prompt(player.name + ", enter your move: [rock] [paper] [scissors]").toLowerCase();
-		isValid = validateGestureInput(player.gesture);
-	} while(!isValid);
-}
-
-function determineRoundWinner(playerOne, playerTwo) {
-	if(playerOne.gesture === playerTwo.gesture) {
-		alert("Tie");
-	}
-	else if(playerOne.gesture === "rock" && playerTwo.gesture === "scissors" || playerOne.gesture === "paper" && playerTwo.gesture === "rock") {
-		playerOne.score++;
-		document.getElementById("p1Score").innerHtml = playerOne.score;
-		alert(playerOne.name + " wins this round!\nThe score is " + playerOne.score + "-" + playerTwo.score);
-	}
-	else {
-		playerTwo.score++;
-		document.getElementById("p2Score").innerHtml = playerTwo.score;
-		alert(playerTwo.name + " wins this round\nThe score is " + playerOne.score + "-" + playerTwo.score);
-	}
 }
 
 function displayGameWinner(playerOne, playerTwo) {
@@ -82,6 +68,18 @@ function displayGameWinner(playerOne, playerTwo) {
 	else {
 		alert(playerTwo.name + " is the victor!");	
 	}
+}
+
+function setPlayerGesture(player) {
+	let isValid = false;
+	do {
+		player.gesture = prompt(player.name + ", enter your move: [rock] [paper] [scissors]").toLowerCase();
+		isValid = validateGestureInput(player.gesture);
+	} while(!isValid);
+}
+
+function setPlayerName(player) {
+	player.name = prompt("Player, please enter your name:");	
 }
 
 function validateGestureInput(userInput) {
