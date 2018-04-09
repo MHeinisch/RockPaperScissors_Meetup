@@ -38,7 +38,7 @@ function determineRoundWinner(playerOne, playerTwo) {
 	if(playerOne.gesture === playerTwo.gesture) {
 		alert("Tie");
 	}
-	else if(playerOne.gesture === "rock") {
+	else if(playerOne.gesture === "rock" && playerTwo.gesture === "scissors" || playerOne.gesture === "paper" && playerTwo.gesture === "rock" || playerOne.gesture === "scissors" && playerTwo.gesture === "paper") {
 		playerOne.score++;	
 		alert(playerOne.name + " wins this round!\nThe score is " + playerOne.score + "-" + playerTwo.score);
 	}
