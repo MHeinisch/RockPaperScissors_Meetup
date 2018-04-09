@@ -1,5 +1,7 @@
 "use strict";
 
+document.write("HELLO WORLD!");
+
 function runGame() {
 
 	// below, we define our two player variables (objects)
@@ -18,7 +20,25 @@ function runGame() {
 	// below, we call a function that displays the rules of the game
 	displayGameRules();
 
-	// need more to play the game!
+	// set the name for both playerOne and then playerTwo
+
+
+	// loop to run one round at a time:
+	while(playerOne.score < 2 && playerTwo.score < 2) {
+
+		// set the gesture for both playerOne and then playerTwo
+
+
+		// display which gesture each player chose:
+		alert(playerOne.name + " chose " + playerOne.gesture + "\n" + playerTwo.name + " chose " + playerTwo.gesture);
+
+		// determine who won the round
+
+
+	}
+
+	// determine and display the game winner
+	
 
 }
 
